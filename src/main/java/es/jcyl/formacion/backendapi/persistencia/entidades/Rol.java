@@ -36,7 +36,7 @@ public class Rol {
     private String nombre;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     private List<Usuario> usuarios;
 
     @CreatedDate

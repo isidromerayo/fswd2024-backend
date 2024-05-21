@@ -43,6 +43,11 @@ public class Usuario {
     private String clave;
 
     @ManyToMany
+    @JoinTable(name="USUARIOS_ROLES",
+      joinColumns=@JoinColumn(name="rol_id",
+      referencedColumnName="id"),
+        inverseJoinColumns=@JoinColumn(name = "usuario_id",
+            referencedColumnName="id"))
     private List<Rol> roles;
 
     @CreatedDate
