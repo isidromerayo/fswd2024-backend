@@ -26,18 +26,19 @@ public class Tarea {
     @Column(name="ID")
     private Integer id;
 
-    @Column(name="NOMBRE")
+    @Column(name="NOMBRE", length = 200, nullable = false)
     private String nombre;
 
     @Column(name="ESTADO")
+    @Min(value = 0, message = "el estado debe estar entre 0 y 100")
+    @Max(value = 100, message = "el estado debe estar entre 0 y 100")
     private Integer estado;
 
-    @Column(name="COLOR")
+    @Column(name="COLOR", length = 40)
     private String color;
 
-    @ManyToOne
+    @ManyToOne // USUARIO_ID por defecto
     private Usuario usuario;
-
 
     @CreatedDate
     @Column(name="F_CREACION", updatable = false)

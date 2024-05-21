@@ -30,16 +30,16 @@ public class Usuario {
     @Column(name="ID")
     private Integer id;
 
-    @Column(name="NOMBRE_COMPLETO")
+    @Column(name="NOMBRE_COMPLETO", length = 200)
     private String nombreCompleto;
 
-    @Column(name="INICIALES")
+    @Column(name="INICIALES", length = 10)
     private String iniciales;
 
-    @Column(name="CORREO")
+    @Column(name="CORREO", length = 100, nullable = false, unique = true)
     private String correo;
 
-    @Column(name="CLAVE")
+    @Column(name="CLAVE", length = 100, nullable = false)
     private String clave;
 
     @ManyToMany

@@ -32,7 +32,7 @@ public class Rol {
     @Column(name="ID")
     private Integer id;
 
-    @Column(name="NOMBRE")
+    @Column(name="NOMBRE", length = 50, nullable = false, unique = true)
     private String nombre;
 
 
