@@ -2,12 +2,14 @@ package es.jcyl.formacion.backendapi.persistencia.entidades;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -20,21 +22,21 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-// TODO: anotar entidad
-// TODO: anotar tabla
+@Entity
+@Table(name="ROLES")
 @EntityListeners(AuditingEntityListener.class)
 public class Rol {
 
-    // TODO: anotar PK
-    // TODO: anotar valor generado
-    // TODO: anotar columna
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Integer id;
 
-    // TODO: anotar columna
+    @Column(name="NOMBRE")
     private String nombre;
 
 
-    // TODO: anotar relacion muchos-a-muchos
+    @ManyToMany
     private List<Usuario> usuarios;
 
     @CreatedDate
